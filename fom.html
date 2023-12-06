@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://images.unsplash.com/photo-1464618663641-bbdd760ae84a?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2Vic2l0ZSUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D') center center fixed;
+      background-size: cover;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-container {
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 300px;
+      width: 80%;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    /* Additional Style for the Heading */
+    h1 {
+      color: #333; /* Adjust the color as needed */
+    }
+    h2 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>REGISTRATION FORM</h1>
+  
+  <div class="login-container">
+    <form action="#" method="post" id="loginForm" onsubmit="return validateForm()">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+      <label for="gmail">Gmail:</label>
+      <input type="email" id="gmail" name="gmail" placeholder="Enter your gmail" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      var nameRegex = /^[A-Za-z ]{3}$/;
+      var phoneRegex = /^[0-9]{10}$/;
+      var passwordRegex = /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
+
+      var name = document.getElementById('name').value;
+      var phone = document.getElementById('phone').value;
+      var password = document.getElementById('password').value;
+
+      if (!nameRegex.test(name)) {
+        alert('Invalid name. Please enter at least 3 alphabets.');
+        return false;
+      }
+
+      if (!phoneRegex.test(phone)) {
+        alert('Invalid phone number. Please enter a 10-digit number.');
+        return false;
+      }
+
+      if (!passwordRegex.test(password)) {
+        alert('Invalid password. It should be at least 8 characters with 1 uppercase, 1 lowercase, 1 number, and 1 special character.');
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</body>
+</html>
